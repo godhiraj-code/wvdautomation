@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "visual-sonar"
+version = "1.0.0"
+description = "WVD/Citrix Remote Desktop Automation using Computer Vision"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Visual Sonar Team", email = "godhiraj@example.com"}
+]
+keywords = [
+    "automation",
+    "rpa",
+    "wvd",
+    "citrix",
+    "remote-desktop",
+    "computer-vision",
+    "gui-automation",
+    "pyautogui",
+    "ocr"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Systems Administration",
+]
+
+dependencies = [
+    "opencv-python>=4.5.0",
+    "numpy>=1.19.0",
+    "pyautogui>=0.9.50",
+    "Pillow>=8.0.0",
+    "pyscreeze>=0.1.28",
+    "pygetwindow>=0.0.9",
+    "pyperclip>=1.8.0",
+]
+
+[project.optional-dependencies]
+ocr = ["pytesseract>=0.3.10"]
+ocr-full = ["easyocr>=1.6.0"]
+crypto = ["cryptography>=3.4.0"]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+all = [
+    "visual-sonar[ocr,crypto,dev]"
+]
+
+[project.urls]
+Homepage = "https://github.com/godhiraj-code/wvdautomation"
+Documentation = "https://github.com/godhiraj-code/wvdautomation#readme"
+Repository = "https://github.com/godhiraj-code/wvdautomation.git"
+Issues = "https://github.com/godhiraj-code/wvdautomation/issues"
+
+[project.scripts]
+visual-sonar = "visual_sonar:main"
+
+[tool.setuptools]
+py-modules = ["visual_sonar", "wvd_simulator"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"

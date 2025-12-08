@@ -3,6 +3,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](visual_sonar.py)
+[![OCR Tests](https://github.com/godhiraj-code/wvdautomation/actions/workflows/ocr-test.yml/badge.svg)](https://github.com/godhiraj-code/wvdautomation/actions/workflows/ocr-test.yml)
 
 **Automate WVD/Citrix remote desktop sessions using Computer Vision** — no DOM access, no server agents, no licensing fees.
 
@@ -26,12 +27,23 @@ Visual Sonar "echolocates" form fields by pressing TAB and detecting visual focu
 
 ## 🚀 Quick Start
 
-### 1. Install
+### Option A: Install from PyPI (Recommended)
 ```powershell
-cd c:\wvd_automation
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
+pip install visual-sonar
+```
+
+Then use:
+```powershell
+visual-sonar map
+visual-sonar run
+visual-sonar --help
+```
+
+### Option B: Install from Source
+```powershell
+git clone https://github.com/godhiraj-code/wvdautomation.git
+cd wvdautomation
+pip install -e .
 ```
 
 ### 2. Map Your Form

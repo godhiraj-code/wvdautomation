@@ -625,19 +625,14 @@ SAFETY:
   Move mouse to TOP-LEFT corner to emergency stop!
 """)
 
-if __name__ == "__main__":
-    # Handle help first
-    if len(sys.argv) > 1 and sys.argv[1].lower() in ['help', '--help', '-h']:
-        print_help()
-        sys.exit(0)
-    
-    bot = VisualSonar()
-    
+
+def _run_cli(bot):
+    """Internal CLI runner."""
     if len(sys.argv) < 2:
         print("\n┌─────────────────────────────────────┐")
         print("│   Welcome to Visual Sonar!          │")
         print("└─────────────────────────────────────┘")
-        print("  Tip: Run 'python visual_sonar.py help' for full guide.\n")
+        print("  Tip: Run 'visual-sonar help' for full guide.\n")
         mode = input("Select mode (map/run/help): ").strip().lower()
     else:
         mode = sys.argv[1].lower()
@@ -967,4 +962,23 @@ if __name__ == "__main__":
     else:
         print(f"\n❌ Unknown command: '{mode}'")
         print("   Valid commands: map, run, list, batch, extract, help")
-        print("   Run 'python visual_sonar.py help' for more info.")
+        print("   Run 'visual-sonar help' for more info.")
+
+
+def main():
+    """Main entry point for the visual-sonar CLI command."""
+    # Handle help first
+    if len(sys.argv) > 1 and sys.argv[1].lower() in ['help', '--help', '-h']:
+        print_help()
+        sys.exit(0)
+    
+    if len(sys.argv) > 1 and sys.argv[1].lower() in ['--version', '-v']:
+        print(f"Visual Sonar v{__version__}")
+        sys.exit(0)
+    
+    bot = VisualSonar()
+    _run_cli(bot)
+
+
+if __name__ == "__main__":
+    main()
