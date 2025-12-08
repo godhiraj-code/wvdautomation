@@ -1,0 +1,4 @@
+username,password,signin
+user1@company.com,Password123!,true
+user2@company.com,SecurePass456!,true
+admin@company.com,AdminPassword789!,true

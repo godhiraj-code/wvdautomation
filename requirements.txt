@@ -1,0 +1,9 @@
+opencv-python
+numpy
+pyautogui
+Pillow
+pyscreeze
+pygetwindow
+pyperclip
+cryptography
+easyocr

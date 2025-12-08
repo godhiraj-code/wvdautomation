@@ -1,0 +1,71 @@
+name: OCR Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  test-ocr:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'  # EasyOCR works on 3.11
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install opencv-python-headless numpy Pillow
+          pip install easyocr
+          pip install pytest
+          
+      - name: Cache EasyOCR models
+        uses: actions/cache@v4
+        with:
+          path: ~/.EasyOCR
+          key: easyocr-models-en
+          
+      - name: Test EasyOCR import
+        run: |
+          python -c "import easyocr; print('EasyOCR imported successfully')"
+          
+      - name: Test OCR on sample image
+        run: |
+          python -c "
+          import easyocr
+          import numpy as np
+          from PIL import Image, ImageDraw, ImageFont
+          
+          # Create a test image with text
+          img = Image.new('RGB', (400, 100), color='white')
+          draw = ImageDraw.Draw(img)
+          draw.text((50, 30), 'Hello Visual Sonar!', fill='black')
+          img.save('test_ocr_input.png')
+          
+          # Run OCR
+          reader = easyocr.Reader(['en'], gpu=False, verbose=False)
+          result = reader.readtext('test_ocr_input.png')
+          
+          print('OCR Results:')
+          for bbox, text, conf in result:
+              print(f'  [{conf:.2f}] {text}')
+          
+          # Verify text was extracted
+          all_text = ' '.join([r[1] for r in result]).lower()
+          assert 'hello' in all_text or 'visual' in all_text, 'OCR failed to detect text!'
+          print('✅ OCR test passed!')
+          "
+          
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ocr-test-images
+          path: "*.png"

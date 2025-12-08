@@ -1,0 +1,120 @@
+# ============================================
+# Visual Sonar - .gitignore
+# ============================================
+
+# ----------------
+# Python
+# ----------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# ----------------
+# IDE / Editor
+# ----------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ----------------
+# OS Generated
+# ----------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ----------------
+# Project Secrets
+# ----------------
+# NEVER commit credentials!
+input.json
+*.key
+*.pem
+secrets/
+
+# Internal documentation (not for public)
+ARCHITECTURE.md
+
+# ----------------
+# Runtime Artifacts
+# ----------------
+# Debug screenshots
+last_debug.png
+error_*.png
+step_*.png
+ocr_*.png
+ocr_*.txt
+
+# Temp files
+*.tmp
+*.bak
+*.log
+
+# ----------------
+# Test Artifacts
+# ----------------
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ----------------
+# OCR Models
+# ----------------
+# EasyOCR downloads models to ~/.EasyOCR
+# Don't commit these if copied locally
+models/
+*.pth
+*.onnx
+
+# ----------------
+# Specific Exclusions
+# ----------------
+# Map temp files
+wvd_map.json.tmp
+
+# ============================================
+# EXCEPTIONS - Files to KEEP
+# ============================================
+# Keep test case examples
+!test_cases/*.json
+!test_cases/*.csv
+
+# Keep the sample wvd_map.json for reference
+# (Comment this out if you want to ignore it)
+# !wvd_map.json

@@ -1,0 +1,7 @@
+{
+    "username": "admin@company.com",
+    "password": "AdminPass456!",
+    "domain": "arrow:2",
+    "remember_me": true,
+    "signin": true
+}
