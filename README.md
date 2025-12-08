@@ -2,7 +2,7 @@
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](visual_sonar.py)
+[![Version](https://img.shields.io/badge/version-1.0.1-brightgreen.svg)](visual_sonar.py)
 [![OCR Tests](https://github.com/godhiraj-code/wvdautomation/actions/workflows/ocr-test.yml/badge.svg)](https://github.com/godhiraj-code/wvdautomation/actions/workflows/ocr-test.yml)
 
 **Automate WVD/Citrix remote desktop sessions using Computer Vision** — no DOM access, no server agents, no licensing fees.
@@ -165,7 +165,7 @@ python visual_sonar.py extract verify 100 200 300 50 "Success"
 
 ## 📖 Documentation
 
-- [USER_GUIDE.md](USER_GUIDE.md) - Comprehensive beginner guide
+- [USER_GUIDE.md](https://github.com/godhiraj-code/wvdautomation/blob/main/USER_GUIDE.md) - Comprehensive beginner guide
 
 ---
 

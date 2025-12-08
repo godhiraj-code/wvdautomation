@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "visual-sonar"
-version = "1.0.0"
+version = "1.0.1"
 description = "WVD/Citrix Remote Desktop Automation using Computer Vision"
 readme = "README.md"
 license = {text = "MIT"}
