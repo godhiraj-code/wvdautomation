@@ -10,7 +10,7 @@ readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.8"
 authors = [
-    {name = "Visual Sonar Team", email = "godhiraj@example.com"}
+    {name = "Dhiraj Das", email = "dhirajdas.666@gmail.com"}
 ]
 keywords = [
     "automation",
