@@ -22,7 +22,6 @@ __version__ = "1.0.0"
 __author__ = "Visual Sonar Team"
 
 # Standard library imports
-import copy
 import ctypes
 import json
 import os
@@ -488,10 +487,9 @@ class VisualSonar:
         scale_ratio = current_scale / saved_scale
         
         # Scrub Secrets for Log
-        safe_data = copy.deepcopy(input_data)
-        for k, v in safe_data.items():
-            if isinstance(v, str) and len(v) > 3:
-                safe_data[k] = '*' * len(v)
+        # Even short strings, numbers, and nested values can contain credentials.
+        # Avoid copying potentially large payloads just to log their field names.
+        safe_data = {key: '[REDACTED]' for key in input_data}
         print(f"\n=== RUNNING (Dry-Run={dry_run}, ScreenCap={screencap}) ===")
         print(f"Input: {safe_data}")
         
